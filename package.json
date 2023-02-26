@@ -1,20 +1,26 @@
 {
-  "name": "googlebooks-app",
+  "name": "tech-matchup-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Book Search",
   "main": "server/server.js",
+  "engines": {
+    "node": ">=14.15.4"
+  },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/server.js --ignore client",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-client": "^2.6.10",
+    "graphql": "^15.5.2"
+  },
   "devDependencies": {
-    "concurrently": "^5.1.0",
-    "@apollo/client": "^3.5.8",
-    "graphql": "^15.4.0"
+    "concurrently": "^5.3.0"
   }
 }
