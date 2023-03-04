@@ -20,6 +20,12 @@ const LoginForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
 
     try {
       const { data } = await loginUser({
@@ -30,6 +36,7 @@ const LoginForm = () => {
 
     } catch (e) {
       console.error(e);
+      setShowAlert(true);
     }
 
     setUserFormData({
@@ -77,6 +84,7 @@ const LoginForm = () => {
           Submit
         </Button>
       </Form>
+      {error && <div>failed sign in</div>}
     </>
   );
 };
