@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
+  Jumbotron,
   Container,
   Col,
   Form,
@@ -90,7 +91,7 @@ const SearchBooks = () => {
 
   return (
     <>
-      <div className='text-light bg-dark pt-5'>
+      <Jumbotron fluid className='text-light bg-dark pt-5'>
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -113,7 +114,7 @@ const SearchBooks = () => {
             </Form.Row>
           </Form>
         </Container>
-      </div>
+      </Jumbotron>
 
       <Container>
         <h2>

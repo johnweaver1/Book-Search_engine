@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Jumbotron,
   Container,
   Card,
   Button,
@@ -14,9 +15,8 @@ import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
   const [loading, data] = useQuery(GET_ME);
+  const userData = data?.me || [];
   const [removeBook, { error }] = useMutation(REMOVE_BOOK);
-
-  const userData = data?.me || {};
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
@@ -27,7 +27,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await removeBook({ variables: { bookId } });
+      await removeBook({ variables: { bookId } });
         console.log("deleted book", response);
       if (error) {
         console.log('something went wrong!', error);
@@ -46,11 +46,11 @@ const SavedBooks = () => {
 
   return (
     <>
-      <div className='text-light bg-dark p-5'>
+      <Jumbotron fluid className='text-light bg-dark p-5'>
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>
-      </div>
+      </Jumbotron>
       <Container>
         <h2 className='pt-5'>
           {userData.savedBooks.length
