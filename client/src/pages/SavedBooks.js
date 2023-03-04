@@ -28,12 +28,8 @@ const SavedBooks = () => {
 
     try {
       await removeBook({ variables: { bookId } });
-        console.log("deleted book", response);
-      if (error) {
-        console.log('something went wrong!', error);
-      }
-      // upon success, remove book's id from localStorage
       removeBookId(bookId);
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
