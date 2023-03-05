@@ -6,13 +6,14 @@ import {
   Form,
   Button,
   Card,
-  Row
+  Row,
+  CardColumns
 } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
-import { saveBook, searchGoogleBooks } from '../utils/API';
+import { searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
-import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/react-hooks';
 import { SAVE_BOOK } from '../utils/mutations';
 
 const SearchBooks = () => {
@@ -122,10 +123,9 @@ const SearchBooks = () => {
             ? `Viewing ${searchedBooks.length} results:`
             : 'Search for a book to begin'}
         </h2>
-        <Row>
+        <CardColumns>
           {searchedBooks.map((book) => {
             return (
-              <Col md="4">
                 <Card key={book.bookId} border='dark'>
                   {book.image ? (
                     <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
@@ -147,10 +147,9 @@ const SearchBooks = () => {
                   </Card.Body>
                   {error && <div>errors were made</div>}
                 </Card>
-              </Col>
             );
           })}
-        </Row>
+        </CardColumns>
       </Container>
     </>
   );
