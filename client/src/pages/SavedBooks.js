@@ -5,7 +5,7 @@ import {
   Card,
   Button,
   Row,
-  Col
+  CardColumns
 } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
@@ -67,6 +67,7 @@ const SavedBooks = () => {
                       Delete this Book!
                     </Button>
                   </Card.Body>
+                  {error && <div> Error again</div>}
                 </Card>
               </Col>
             );
