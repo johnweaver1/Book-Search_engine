@@ -2,8 +2,7 @@
 
 ## Description
 
-I ahve refaracterd a app to use graphql and apollo togethor to search for books using a google api, login as a user, and save books!
-```
+I have refactored a app to use graphql and apollo togethor to search for books using a google api, login as a user, and save books!
 
 ## Table of Contents
 
@@ -30,5 +29,3 @@ Or use npm run build and npm run start:dev
 ## License
 
 ![License badge](https://img.shields.io/badge/license-MIT-blue.svg)
-
-```
