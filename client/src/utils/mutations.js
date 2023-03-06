@@ -25,22 +25,21 @@ mutation addUser($username: String!, $email: String!, $password: String!) {
 `;
 
 export const SAVE_BOOK = gql`
-mutation saveBook($input: inputBook!) {
-    saveBook(input: $input) {
-        _id
-        username
-        email
-        bookCount
-        savedBooks {
-            bookId
-            authors
-            description
-            title
-            image
-            link
-        }
+  mutation saveBook($bookInput: BookInput!) {
+    saveBook(bookInput: $bookInput) {
+      _id
+      username
+      email
+      savedBooks {
+        bookId
+        authors
+        image
+        description
+        title
+        link
+      }
     }
-}
+  }
 `;
 
 export const REMOVE_BOOK = gql`
